@@ -12540,11 +12540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mahesh\\Documents\\dotNETCORE\\myApp\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "c:\\Users\\Mahesh\\Documents\\dotNETCORE\\TodoApi\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\Mahesh\\Documents\\dotNETCORE\\myApp\\TodoApi\\TodoApi.csproj",
+      "projectPath": "c:\\Users\\Mahesh\\Documents\\dotNETCORE\\TodoApi\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\Mahesh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mahesh\\Documents\\dotNETCORE\\myApp\\TodoApi\\obj\\",
+      "outputPath": "c:\\Users\\Mahesh\\Documents\\dotNETCORE\\TodoApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
