@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.Models;
+using TodoApi.Data;
 using System.Linq;
 
 namespace TodoApi.Controllers
@@ -13,11 +14,6 @@ namespace TodoApi.Controllers
         public TodoController(TodoContext context)
         {
             _context = context;
-            if (_context.TodoItems.Count() == 0)
-            {
-                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
@@ -29,7 +25,7 @@ namespace TodoApi.Controllers
         [HttpGet("{id}", Name = "GetTodo")]
         public IActionResult GetById(long id)
         {
-            var item = _context.TodoItems.FirstOrDefault(t => t.Id == id);
+            var item = _context.TodoItems.FirstOrDefault(t => t.TodoItemID == id);
             if (item == null)
             {
                 return NotFound();
@@ -48,18 +44,18 @@ namespace TodoApi.Controllers
             _context.TodoItems.Add(item);
             _context.SaveChanges();
 
-            return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
+            return CreatedAtRoute("GetTodo", new { id = item.TodoItemID }, item);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(long id, [FromBody] TodoItem item)
         {
-            if (item == null || item.Id != id)
+            if (item == null || item.TodoItemID != id)
             {
                 return BadRequest();
             }
 
-            var todo = _context.TodoItems.FirstOrDefault(t => t.Id == id);
+            var todo = _context.TodoItems.FirstOrDefault(t => t.TodoItemID == id);
             if (todo == null)
             {
                 return NotFound();
@@ -76,7 +72,7 @@ namespace TodoApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            var todo = _context.TodoItems.FirstOrDefault(t => t.Id == id);
+            var todo = _context.TodoItems.FirstOrDefault(t => t.TodoItemID == id);
             if (todo == null)
             {
                 return NotFound();
