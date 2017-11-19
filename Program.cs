@@ -17,7 +17,7 @@ namespace TodoApi
     {
         public static void InitializeDb(TodoContext context)
         {
-            context.Database.EnsureCreated();
+            // context.Database.EnsureCreated(); //Commented to ensure migrations execute
             if (context.TodoItems.Any())
             {
                 return;   // DB has been seeded
